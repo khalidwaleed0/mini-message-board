@@ -38,7 +38,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-// const mongoose = require("mongoose");
-// mongoose.connect("mongodb://localhost/")
-
 module.exports = app;
