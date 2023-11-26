@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1/mini-messages-board-db");
 const messageSchema = new mongoose.Schema({
   text: String,
   user: String,
@@ -12,7 +11,7 @@ const messageSchema = new mongoose.Schema({
 const messages = mongoose.model("messages", messageSchema);
 
 router.get("/", async function (req, res) {
-  res.render("index", { title: "Mini Message Board", messages: await messages.find({}) });
+  res.render("index", { title: "Mini Message Board", messages: await messages.find() });
 });
 
 router.get("/new", function (req, res) {
